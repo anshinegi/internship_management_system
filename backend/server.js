@@ -1,12 +1,31 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const authRoutes = require("./routes/auth");
+require("dotenv").config();
 
 const app = express();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
+app.use("/api/auth", authRoutes);
+
+
+// Connect to MongoDB
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("MongoDB connected successfully");
+    })
+    .catch((error) => {
+        console.error("MongoDB connection failed:", error.message);
+    });
+
 
 // Home / API status route
 app.get("/", (req, res) => {
@@ -75,6 +94,7 @@ app.get("/api/internships", (req, res) => {
 });
 
 
+// Start server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
