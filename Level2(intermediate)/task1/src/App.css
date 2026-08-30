@@ -233,3 +233,11 @@ main p {
     font-size: 30px;
   }
 }
+
+.error-message {
+  padding: 60px 20px;
+  text-align: center;
+  color: #dc2626;
+  font-size: 18px;
+  background: #fef2f2;
+}
