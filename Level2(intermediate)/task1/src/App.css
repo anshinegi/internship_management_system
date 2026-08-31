@@ -241,3 +241,21 @@ main p {
   font-size: 18px;
   background: #fef2f2;
 }
+
+.success-message {
+  margin-top: 15px;
+  padding: 10px;
+  color: green;
+  background: #e8f5e9;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.error-message {
+  margin-top: 15px;
+  padding: 10px;
+  color: red;
+  background: #ffebee;
+  border-radius: 6px;
+  text-align: center;
+}

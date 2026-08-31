@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import InternshipList from "./components/InternshipList";
+import Auth from "./components/Auth"; 
 
 function App() {
   const [internships, setInternships] = useState([]);
@@ -35,6 +36,8 @@ function App() {
 
       <Hero />
 
+      <Auth />
+      
       {loading && (
         <div className="loading">
           <p>Loading internships...</p>
