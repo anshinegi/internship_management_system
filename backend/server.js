@@ -24,7 +24,7 @@ app.use("/api/internships", internshipRoutes);
 
 // Connect to MongoDB
 mongoose
-    .connect(process.env.MONGO_URI)
+    mongoose.connect(process.env.MONGO_ATLAS_URI || process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB connected successfully");
     })

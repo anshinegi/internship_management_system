@@ -49,7 +49,7 @@ const internships = [
 
 async function seedInternships() {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        await mongoose.connect(process.env.MONGO_ATLAS_URI || process.env.MONGO_URI);
 
         await Internship.deleteMany({});
         await Internship.insertMany(internships);
