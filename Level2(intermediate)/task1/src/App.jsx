@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import InternshipList from "./components/InternshipList";
 import Auth from "./components/Auth"; 
+import Chat from "./components/Chat";
 
 function App() {
   const [internships, setInternships] = useState([]);
@@ -37,7 +38,9 @@ function App() {
       <Hero />
 
       <Auth />
-      
+	
+      <Chat />
+   
       {loading && (
         <div className="loading">
           <p>Loading internships...</p>
