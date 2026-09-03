@@ -36,11 +36,20 @@ app.use("/api/internships", internshipRoutes);
 
 // WebSocket connection
 io.on("connection", (socket) => {
+    const userId = socket.handshake.auth.userId;
+
+    if (userId) {
+        socket.join(userId);
+    }
     console.log("User connected:", socket.id);
 
     socket.on("chatMessage", (message) => {
-        io.emit("chatMessage", message);
-    });
+    const userId = socket.handshake.auth.userId;
+
+    if (userId) {
+        io.to(userId).emit("chatMessage", message);
+    }
+});
 
     socket.on("disconnect", () => {
         console.log("User disconnected:", socket.id);
