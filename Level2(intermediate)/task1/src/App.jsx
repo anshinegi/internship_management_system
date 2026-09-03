@@ -6,13 +6,15 @@ import InternshipList from "./components/InternshipList";
 import Auth from "./components/Auth"; 
 import Chat from "./components/Chat";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 function App() {
   const [internships, setInternships] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/internships")
+    fetch(`${API_URL}/api/internships`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch internships");

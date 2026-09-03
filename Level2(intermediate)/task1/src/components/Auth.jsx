@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 function Auth() {
   const [isLogin, setIsLogin] = useState(true);
 
@@ -31,7 +33,7 @@ function Auth() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/auth/${endpoint}`,
+        `${API_URL}/api/auth/${endpoint}`,
         {
           method: "POST",
           headers: {
