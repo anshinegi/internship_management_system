@@ -9,4 +9,4 @@
 - Git & GitHub
 
 ## Project Status
-Currently under development.
+Completed
