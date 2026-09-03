@@ -37,4 +37,5 @@ const internshipSchema = new mongoose.Schema(
     }
 );
 
+internshipSchema.index({ createdAt: -1 });
 module.exports = mongoose.model("Internship", internshipSchema);

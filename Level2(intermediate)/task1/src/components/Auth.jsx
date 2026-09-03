@@ -51,6 +51,7 @@ function Auth() {
       }
 
       setMessage(data.message);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       setName("");
       setEmail("");
